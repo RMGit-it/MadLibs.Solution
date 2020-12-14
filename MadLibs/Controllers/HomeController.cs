@@ -1,14 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
-using words.Models;
+using MadLibs.Models;
 
 namespace MadLibs.Controllers
 {
   public class HomeController : Controller
   {
+
+    [Route("/form")]
+    public ActionResult Form() { return View(); }
+
     [Route("/input")]
-    public ActionResult AddLibs(string adjective1, )
+    public ActionResult Words(string adjective1, string adjective2, string birdType, string houseRoom, string verb1, string verb2, string relativesName, string noun1, string liquid, string verbIng1, string bodyPart, string pluralNoun, string verbIng2, string noun2)
     {
-      Word myWord = new Word();
+      WordVariable myWord = new WordVariable();
       myWord.Adjective1 = adjective1;
       myWord.Adjective2 = adjective2;
       myWord.BirdType = birdType;
@@ -23,6 +27,9 @@ namespace MadLibs.Controllers
       myWord.PluralNoun = pluralNoun;
       myWord.VerbIng2 = verbIng2;
       myWord.Noun2 = noun2;
+      return View(myWord);
     }
+
+
   }
 }
